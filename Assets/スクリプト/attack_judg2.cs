@@ -1,0 +1,64 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class attack_judg2 : MonoBehaviour {
+
+	public GameObject Player;
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+	void OnTriggerEnter2D(Collider2D collider) { 
+		switch(Player.GetComponent<hero2>().level){
+		case 1:
+			if (collider.gameObject.tag == "pino") {
+				//collider.gameObject.GetComponent<Enemy> ().hit ();
+				collider.gameObject.GetComponent<mob_AI> ().hit ();	
+
+			}
+			if (collider.gameObject.tag == "tamashibi") {
+				collider.gameObject.GetComponent<Tamashibi_AI3> ().hit ();
+
+			}
+			if (collider.gameObject.tag == "Kakashi") {
+				Debug.Log (collider.gameObject.tag);
+
+
+			}
+			break;
+		case 2:
+			if (collider.gameObject.tag == "pino") {
+				//collider.gameObject.GetComponent<Enemy> ().hit ();
+				collider.gameObject.GetComponent<mob_AI> ().hit ();	
+				Player.GetComponent<hero2> ().Attack = true;
+				Player.GetComponent<hero2> ().attackCount++;
+				if (Player.GetComponent<hero2> ().SecondAttack == false) {
+					Player.GetComponent<hero2> ().Attack = true;
+				}
+
+			}
+			if (collider.gameObject.tag == "tamashibi") {
+				collider.gameObject.GetComponent<Tamashibi_AI3> ().hit ();
+				Player.GetComponent<hero2> ().Attack = true;
+				Player.GetComponent<hero2> ().attackCount++;
+				if (Player.GetComponent<hero2> ().SecondAttack == false) {
+					Player.GetComponent<hero2> ().Attack = true;
+				}
+
+			}
+			if (collider.gameObject.tag == "Kakashi") {
+				Debug.Log (collider.gameObject.tag);
+				Player.GetComponent<hero2> ().attackCount++;
+				if (Player.GetComponent<hero2> ().SecondAttack == false) {
+					Player.GetComponent<hero2> ().Attack = true;
+				}
+			}
+			break;
+		}
+	}
+}

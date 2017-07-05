@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: fdecf55e5125c4cf2b92aef708c30cae
+timeCreated: 1497759866
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: cinecaption
+  fontNames:
+  - cinecaption
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
