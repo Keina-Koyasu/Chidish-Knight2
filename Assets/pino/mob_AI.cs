@@ -16,6 +16,9 @@ public class mob_AI : MonoBehaviour {
 	private bool isJump = false;
 	private Animator anim;
 
+
+
+
 	// JumpParams
 	private float jumpPowor;
 	public float jumpPoworConst = 0.8f;

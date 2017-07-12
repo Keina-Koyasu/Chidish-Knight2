@@ -13,7 +13,7 @@ public class Enemyattack : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) { 
-		Debug.Log (collider.gameObject.tag);
+		//Debug.Log (collider.gameObject.tag);
 		if (collider.gameObject.tag == "Player") {
 			//collider.gameObject.GetComponent<Enemy> ().hit ();
 			collider.gameObject.SendMessage("hit", attack);   //相手の"Damage"関数を呼び出す

@@ -18,6 +18,8 @@ public class hero2 : MonoBehaviour {
 	public float maxLife = 100;    //最大体力（readonlyは変数の変更ができなくなるらしい）
 	public float Life = 100;    //現在体力
 
+
+
 	//レベルアップと攻撃カウント
 	public int level = 1 ;
 	public float EXP =0;
@@ -62,7 +64,7 @@ public class hero2 : MonoBehaviour {
 		attackEF2.SetActive (true);
 		attackEF2.GetComponent<Animator> ().SetTrigger ("yari");
 		attackEF2.GetComponent<attack_judg2> ();
-		Invoke ("ATKEFDL2", 0.6f); //0.25f後にアタックエフェクトを消す
+		Invoke ("ATKEFDL2", 0.7f); //0.25f後にアタックエフェクトを消す
 		Attack= false;
 		SecondAttack = true;
 	}
@@ -104,11 +106,6 @@ public class hero2 : MonoBehaviour {
 		} else {
 			if (Life < 0) {
 				StartCoroutine ("Dead");
-				//体力が0になったら
-				//Destroy(this.gameObject);
-			
-					
-
 			}
 		}
 	}
@@ -117,6 +114,7 @@ public class hero2 : MonoBehaviour {
 	}
 	IEnumerator Dead(){
 		anim.SetTrigger("damage");
+		gameObject.layer = LayerMask.NameToLayer ("PlayerDamage");
 		yield return new WaitForSeconds(0.01f);
 		anim.SetTrigger ("Dead");
 		move = false;
@@ -126,6 +124,7 @@ public class hero2 : MonoBehaviour {
 		RevivalEF.SetActive (false);
 		anim.SetTrigger ("Revival");
 		yield return new WaitForSeconds(0.8f);
+		gameObject.layer = LayerMask.NameToLayer("Character");
 		move = true;
 		maxLife += 30f;
 		Life = maxLife;
